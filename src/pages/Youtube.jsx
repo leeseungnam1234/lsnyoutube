@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Main from '../components/section/Main'
-import VideoCards from '../components/videos/VideoCards'
+import VideoCards from '../components/video/VideoCards'
 import {youtubeText} from '../data/youtube'
 
 const Youtube = () => {

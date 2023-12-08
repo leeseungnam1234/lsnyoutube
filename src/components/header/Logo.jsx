@@ -1,12 +1,14 @@
 import React from 'react'
 import { CiAvocado } from "react-icons/ci"
-const Logo = () => {
+import { Link } from 'react-router-dom'
+
+const Logo = ({toggleMenu}) => {
     return (
         <h1 className='header_logo'>
-            <a href='/'>
-                <em aria-hidden='true'><CiAvocado color='green'/></em>
-                <span>이승남<br/>youtube</span>
-            </a>
+             <Link to='/'>
+                <em aria-hidden='true' onClick={toggleMenu}><CiAvocado color='green'/></em>
+                <span>이승남<br />youtube</span>
+            </Link>
         </h1>
     )
 }

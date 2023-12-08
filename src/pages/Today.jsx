@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Main from '../components/section/Main'
-import {todayText} from '../data/today'
+
+import { todayText } from '../data/today'
 import { Link } from 'react-router-dom'
 
 const Today = () => {
-    const [loading,setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setTimeout(() => {
-            setLoading(false)
-        }, 300);
-    },[])
+            setLoading(false);
+        }, 300)
+    }, [])
 
     const todayPageClass = loading?'isLoading':'isLoaded'
 

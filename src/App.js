@@ -29,9 +29,9 @@ const App = () => {
                <Route path='/gsap' element={<Gsap/>}></Route>
                <Route path='/port' element={<Port/>}></Route>
                <Route path='/youtube' element={<Youtube/>}></Route>
-               <Route path='/channel/:channelID' element={<Channel/>}></Route>
-               <Route path='/Video/:VideoID' element={<Video/>}></Route>
-               <Route path='/search' element={<Search/>}></Route>
+               <Route path='/channel/:channelId' element={<Channel/>}></Route>
+               <Route path='/Video/:VideoId' element={<Video/>}></Route>
+               <Route path='/search/:searchId' element={<Search/>}></Route>
                <Route path='/*' element={<Not/>}></Route>
             </Routes>
          </Suspense>

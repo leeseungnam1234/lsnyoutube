@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { developerText } from '../../data/developer'
+
 import { Link } from 'react-router-dom'
 
 import 'swiper/css'
@@ -15,7 +15,7 @@ const Developer = ({videos, title, id}) => {
     useEffect(() =>{
         setTimeout(() =>{
             setLoading(false)
-        },500)
+        },400)
     },[])
 
     const developerClass=loading ? 'isLoading':'isLoaded'
@@ -62,7 +62,7 @@ const Developer = ({videos, title, id}) => {
                     modules={[Navigation, Autoplay]}
                     className='mySwiper'
                 >
-                    {developerText.map((developer, key)=>(
+                    {videos.map((developer, key)=>(
                         <SwiperSlide key={key}>
                         <div className='developer' key={key}>
                             <div className='developer_img play_icon'>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const VideoCards = ({videos}) => {
+const VideoCard = ({ videos }) => {
     return (
         <>
-            {videos.map((video, index)=>(
-                <div className='video' key={index}>
-                    <div className='video_thumb play_icon'>
+            {videos.map((video, key) => (
+                <div className='video' key={key}>
+                    <div className='video__thumb play__icon'>
                         <Link to={`/video/${video.videoId}`}>
                             <img src={video.img} alt={video.title} />
                         </Link>
@@ -17,4 +17,4 @@ const VideoCards = ({videos}) => {
     )
 }
 
-export default VideoCards
+export default VideoCard

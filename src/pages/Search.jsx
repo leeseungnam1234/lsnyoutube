@@ -1,49 +1,56 @@
 import React, { useEffect, useState } from 'react'
-import Main from '../components/section/Main'
-import VideoSearch from '../components/videos/VideoSearch'
 import { useParams } from 'react-router-dom'
-import {fetchFromAPI} from '../components/utils/api'
+import Main from '../components/section/Main'
+
+import VideoSearch from '../components/video/VideoSearch'
+import { fetchFromAPI } from '../utils/api'
 
 const Search = () => {
-    const {searchId} = useParams()
-    const [videos, setVideos] = useState([])
-    const [nextPageToken,setNextPageToken] = useState(null)
-
-    useEffect(()=>{
+    const { searchId } = useParams()
+    const [ videos, setVideos ] = useState([])
+    const [ nextPageToken, setNextPageToken ] = useState(null)
+    const [ loading, setLoading ] = useState(true);
+    
+    useEffect(() => {
         setVideos([])
         fetchVideos(searchId)
-    },[searchId])
+        setLoading(true)
+    }, [searchId])
 
-    const fetchVideos = (query, pageToken='')=>{
+    const fetchVideos = (query, pageToken = '') => {
         fetchFromAPI(`search?part=snippet&q=${query}&pageToken=${pageToken}`)
-        .then((data)=>{
-            setNextPageToken(data.nextPageToken)
-            setVideos((prevVideos)=>[...prevVideos,...data.items])
-        })
-        .catch((error)=>{
-            console.error(`Error fetching data:`.error)
-        })
-    }
+            .then((data) => {
+                setNextPageToken(data.nextPageToken)
+                setVideos((prevVideos) => [...prevVideos, ...data.items])
+                setLoading(false)
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error)
+                setLoading(false);
+            });
+    };
 
-    const handelLoadMore = () =>{
-        if(nextPageToken){
-            fetchVideos(searchId,nextPageToken)
+    const handleLoadMore = () => {
+        if (nextPageToken) {
+            fetchVideos(searchId, nextPageToken)
         }
     }
 
-    return (
-        <Main    
-            title = "유투브 검색" 
-            description="유튜브 검색 결과 페이지입니다.">
+    const searchPageClass = loading ? 'isLoading' : 'isLoaded'
 
-            <section id='searchPage'>
-                <h2><em>{searchId}</em>검색 결과입니다.</h2>
-                <div className='video_inner search'>
-                    <VideoSearch videos={videos}/>
+    return (
+        <Main 
+            title = "유투브 검색"
+            description="유튜브 검색 결과 페이지입니다.">
+            
+            <section id='searchPage' className={searchPageClass}>
+                <h2>🤠 <em>{searchId}</em> 검색 결과입니다.</h2>
+                <div className="video_inner search">
+                    <VideoSearch videos={videos} />
                 </div>
-                <div className='video_more'>
-                    {nextPageToken&&(
-                        <button onClick={handelLoadMore}>더보기</button>
+                <div className="video_more">
+                    {nextPageToken && (
+                        <button onClick={handleLoadMore}>더 보기</button>
                     )}
                 </div>
             </section>

@@ -106,21 +106,21 @@ export const snsLink = [
     {
         title: "github",
         url: "https://github.com/leeseungnam1234/lsnyoutube",
-        icon: <AiFillGithub size={30}/>
-    },
-    {
-        title: "youtube",
-        url: "https://www.youtube.com",
-        icon: <AiFillYoutube size={30}/>
-    },
-    {
-        title: "codepen",
-        url: "https://codepen.io",
-        icon: <AiOutlineCodepen size={30}/>
+        icon: <AiFillGithub size={30} color='A4814F'/>
     },
     {
         title: "instagram",
         url: "https://www.instagram.com/_seung_nam/",
-        icon: <AiOutlineInstagram size={30}/>
+        icon: <AiOutlineInstagram size={30} color='#F088B1'/>
+    },
+    {
+        title: "youtube",
+        url: "https://www.youtube.com",
+        icon: <AiFillYoutube size={30} color='red'/>
+    },
+    {
+        title: "codepen",
+        url: "https://codepen.io",
+        icon: <AiOutlineCodepen size={30} color='C8FFFF'/>
     }
 ]

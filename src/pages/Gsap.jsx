@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Main from '../components/section/Main'
-import VideoChard from '../components/videos/VideoCards'
+import VideoChard from '../components/video/VideoCards'
 import {gsapText} from '../data/gsap'
 
 const Gsap = () => {

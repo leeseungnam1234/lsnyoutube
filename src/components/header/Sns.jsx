@@ -1,17 +1,19 @@
 import React from 'react'
 import { snsLink } from '../../data/header'
-import {useLocation} from 'react-router-dom'
 
 const Sns = () => {
-    const location = useLocation();
     
     return (
         <div className='header_sns'>
             <ul>
-                {snsLink.map((snsLink,key)=>
-                    <li key={key} className={location.pathname === snsLink.src ? 'active' : ''}>
-                        <a href={snsLink.url} target='_black' rel='noopener noreferrer' aria-label={snsLink.title}>
-                            <span>{snsLink.icon}</span>
+                {snsLink.map((sns ,key)=>
+                    <li key={key}>
+                        <a 
+                        href={sns.url} 
+                        target='_black' 
+                        rel='noopener noreferrer' 
+                        aria-label={sns.title}>
+                            <span>{sns.icon}</span>
                         </a>
                     </li>
                 )}
